@@ -1,9 +1,11 @@
 const http = require("http");
 const testingSyntax = require("./syntax");
+const runtime = require("./runtime");
 
 const server = http.createServer((req, res) => {
   console.log(req.url, req.method);
-  testingSyntax();
+  // testingSyntax();
+  runtime();
 });
 
 const PORT = 3000;
