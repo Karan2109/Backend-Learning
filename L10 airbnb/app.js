@@ -19,8 +19,7 @@ app.get("/host/add-home", (req, res, next) => {
   res.send(`
     <h1> Register on airbnb </h1>
     <form action="/host/add-home" method="POST">
-        <input type="text" name="username" placeholder="Enter your name"/>
-        <input type="text" name="password" placeholder="Enter your password"/>
+        <input type="text" name="Home_Name" placeholder="Enter your Home name"/>
         <input type="submit" value="Register"/>
     </form>
     `);
@@ -29,7 +28,7 @@ app.get("/host/add-home", (req, res, next) => {
 app.post("/host/add-home", (req, res, next) => {
   console.log(req.body);
   res.send(`
-    <h1> Registered successfully </h1>
+    <h1>Home Registered successfully </h1>
     <a href="/">Go to Home</a>  
     `);
 });
