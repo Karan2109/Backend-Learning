@@ -3,6 +3,7 @@ const express = require("express");
 
 // Local Modules
 const userRouter = require("./routes/userRouters");
+const hostRouter = require("./routes/hostRoutes");
 
 const app = express();
 
@@ -14,24 +15,7 @@ app.use((req, res, next) => {
 app.use(express.urlencoded());
 
 app.use(userRouter);
-
-app.get("/host/add-home", (req, res, next) => {
-  res.send(`
-    <h1> Register on airbnb </h1>
-    <form action="/host/add-home" method="POST">
-        <input type="text" name="Home_Name" placeholder="Enter your Home name"/>
-        <input type="submit" value="Register"/>
-    </form>
-    `);
-});
-
-app.post("/host/add-home", (req, res, next) => {
-  console.log(req.body);
-  res.send(`
-    <h1>Home Registered successfully </h1>
-    <a href="/">Go to Home</a>  
-    `);
-});
+app.use(hostRouter);
 
 const PORT = 5000;
 app.listen(PORT, () => {
